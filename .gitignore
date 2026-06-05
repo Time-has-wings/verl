@@ -131,3 +131,7 @@ logs
 log
 outputs
 .history
+
+# install_scripts: 仅保留 .sh 脚本
+install_scripts/*
+!install_scripts/*.sh
