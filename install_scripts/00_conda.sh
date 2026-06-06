@@ -20,7 +20,7 @@ source /jizhicfs/johnnyslin/anaconda3/etc/profile.d/conda.sh
 # ============================================================
 # 配置 conda 环境前缀路径（按需修改）
 # ============================================================
-ENV_PREFIX="/tmp/linguangming/slime-workspace/lgm_verl"
+ENV_PREFIX="/tmp/linguangming/verl-workspace/lgm-verl-force"
 
 # 1.1 创建 slime 环境（已存在则跳过）
 if [ -d "$ENV_PREFIX" ]; then

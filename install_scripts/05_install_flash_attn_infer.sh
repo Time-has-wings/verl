@@ -26,8 +26,12 @@ echo "============================================"
 echo ""
 
 echo "[1/2] 安装 flash-attn 2.8.1 (cxx11abi=False)..."
-wget -nv https://github.com/Dao-AILab/flash-attention/releases/download/v2.8.1/flash_attn-2.8.1+cu12torch2.8cxx11abiFALSE-cp312-cp312-linux_x86_64.whl
-pip install --no-cache-dir flash_attn-2.8.1+cu12torch2.8cxx11abiFALSE-cp312-cp312-linux_x86_64.whl
+export FLASH_ATTENTION_FORCE_BUILD=TRUE
+pip uninstall -y flash-attn flash_attn
+# wget -nv https://github.com/Dao-AILab/flash-attention/releases/download/v2.8.1/flash_attn-2.8.1+cu12torch2.8cxx11abiFALSE-cp312-cp312-linux_x86_64.whl
+# pip install --no-cache-dir --force-reinstall --no-deps flash_attn-2.8.1+cu12torch2.8cxx11abiFALSE-cp312-cp312-linux_x86_64.whl
+# pip install --no-cache-dir --no-build-isolation --no-binary flash-attn flash-attn==2.8.1
+pip install -v --no-cache-dir --no-build-isolation --no-binary=flash-attn flash-attn==2.8.1
 echo "      flash-attn 安装完成"
 
 echo ""

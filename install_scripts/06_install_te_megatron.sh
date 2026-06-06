@@ -41,7 +41,11 @@ pip install "onnxscript==0.3.1"
 
 echo ""
 echo "[2/3] 安装 TransformerEngine@v2.6 ..."
-NVTE_FRAMEWORK=pytorch pip3 install --no-deps git+https://github.com/NVIDIA/TransformerEngine.git@v2.6
+# 原始写法: 缺少 --no-build-isolation，pip 会在隔离环境中使用 pyproject.toml 声明的 torch 版本编译，
+# 导致 .so 链接的 PyTorch ABI 与当前安装的 PyTorch 不一致，出现 undefined symbol 错误。
+# NVTE_FRAMEWORK=pytorch pip3 install --no-deps git+https://github.com/NVIDIA/TransformerEngine.git@v2.6
+pip uninstall transformer_engine -y
+NVTE_FRAMEWORK=pytorch pip3 install --no-deps --no-build-isolation git+https://github.com/NVIDIA/TransformerEngine.git@v2.6
 echo "      TransformerEngine 安装完成"
 
 echo ""
@@ -51,3 +55,15 @@ echo "      Megatron-LM 安装完成"
 
 echo ""
 echo "==== 06_install_te_megatron.sh 完成 ===="
+
+
+# import traceback
+
+# try:
+#     import verl.workers.engine.megatron.transformer_impl
+#     print("megatron transformer_impl imported OK")
+# except Exception:
+#     traceback.print_exc()
+
+# from verl.workers.engine.base import EngineRegistry
+# print(EngineRegistry._engines)
