@@ -27,8 +27,8 @@ echo "============================================"
 echo ""
 
 if [ $USE_SGLANG -eq 1 ]; then
-    echo "[1/2] 安装 sglang[all]==0.5.2 ..."
-    pip install "sglang[all]==0.5.2" --no-cache-dir --no-build-isolation
+    echo "[1/2] 安装 sglang[all]==0.5.5 ..."
+    pip install "sglang[all]==0.5.5" --no-cache-dir --no-build-isolation
     pip install torch-memory-saver --no-cache-dir
     echo "      sglang 安装完成"
 else
