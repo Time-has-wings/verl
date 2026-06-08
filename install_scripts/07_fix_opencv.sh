@@ -14,9 +14,14 @@ LOG_FILE="$LOG_DIR/$(basename "$0" .sh)_$(date +%Y%m%d_%H%M%S).log"
 exec > >(tee -a "$LOG_FILE") 2>&1
 
 # ---- CUDA 环境变量 ----
-export CUDA_HOME=/tmp/linguangming/verl-workspace/verl-cuda
+export CUDA_HOME=/home/pkuhetu/lgm/WorkSpace/verl-workspce/verl-cuda
 export PATH=${CUDA_HOME}/bin:$PATH
 export LD_LIBRARY_PATH=${CUDA_HOME}/lib64:$LD_LIBRARY_PATH
+
+export PIP_CONFIG_FILE=/dev/null
+export PIP_CACHE_DIR=/tmp/linguangming/pip_cache
+mkdir -p "$PIP_CACHE_DIR"
+export PIP_PROXY=http://127.0.0.1:17897
 
 echo "============================================"
 echo " OpenCV 修复"

@@ -21,7 +21,7 @@ TARFILE="cudnn-linux-x86_64-${CUDNN_FULL_VERSION}_cuda${CUDA_MAJOR}-archive.tar.
 DOWNLOAD_URL="https://developer.download.nvidia.com/compute/cudnn/redist/cudnn/linux-x86_64/${TARFILE}"
 
 # cuDNN 的头文件和库将被复制到这个目录（与 CUDA 安装目录一致）
-CUDA_INSTALL_DIR="/tmp/linguangming/verl-workspace/verl-cuda"
+CUDA_INSTALL_DIR="/home/pkuhetu/lgm/WorkSpace/verl-workspce/verl-cuda"
 CUDNN_EXTRACT_DIR="/tmp/cudnn-extract"
 
 echo "============================================"

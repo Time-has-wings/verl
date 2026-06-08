@@ -16,9 +16,14 @@ LOG_FILE="$LOG_DIR/$(basename "$0" .sh)_$(date +%Y%m%d_%H%M%S).log"
 exec > >(tee -a "$LOG_FILE") 2>&1
 
 # ---- CUDA 环境变量 ----
-export CUDA_HOME=/tmp/linguangming/verl-workspace/verl-cuda
+export CUDA_HOME=/home/pkuhetu/lgm/WorkSpace/verl-workspce/verl-cuda
 export PATH=${CUDA_HOME}/bin:$PATH
 export LD_LIBRARY_PATH=${CUDA_HOME}/lib64:$LD_LIBRARY_PATH
+
+export PIP_CONFIG_FILE=/dev/null
+export PIP_CACHE_DIR=/tmp/linguangming/pip_cache
+mkdir -p "$PIP_CACHE_DIR"
+export PIP_PROXY=http://127.0.0.1:18080
 
 echo "============================================"
 echo " FlashAttention & FlashInfer 安装"
@@ -26,8 +31,12 @@ echo "============================================"
 echo ""
 
 echo "[1/2] 安装 flash-attn 2.8.1 (cxx11abi=False)..."
-wget -nv https://github.com/Dao-AILab/flash-attention/releases/download/v2.8.1/flash_attn-2.8.1+cu12torch2.8cxx11abiFALSE-cp312-cp312-linux_x86_64.whl
-pip install --no-cache-dir flash_attn-2.8.1+cu12torch2.8cxx11abiFALSE-cp312-cp312-linux_x86_64.whl
+export FLASH_ATTENTION_FORCE_BUILD=TRUE
+pip uninstall -y flash-attn flash_attn
+# wget -nv https://github.com/Dao-AILab/flash-attention/releases/download/v2.8.1/flash_attn-2.8.1+cu12torch2.8cxx11abiFALSE-cp312-cp312-linux_x86_64.whl
+# pip install --no-cache-dir --force-reinstall --no-deps flash_attn-2.8.1+cu12torch2.8cxx11abiFALSE-cp312-cp312-linux_x86_64.whl
+# pip install --no-cache-dir --no-build-isolation --no-binary flash-attn flash-attn==2.8.1
+pip install -v --no-cache-dir --no-build-isolation --no-binary=flash-attn flash-attn==2.7.3
 echo "      flash-attn 安装完成"
 
 echo ""

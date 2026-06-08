@@ -8,7 +8,7 @@
 set -euo pipefail
 
 # ---- 安装目录，可通过命令行参数或环境变量指定 ----
-CUDA_INSTALL_DIR="/tmp/linguangming/verl-workspace/verl-cuda"
+CUDA_INSTALL_DIR="/home/pkuhetu/lgm/WorkSpace/verl-workspce/verl-cuda"
 CUDA_VERSION="12.8.1"
 DRIVER_VERSION="570.124.06"
 RUNFILE="cuda_${CUDA_VERSION}_${DRIVER_VERSION}_linux.run"
