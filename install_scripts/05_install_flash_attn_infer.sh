@@ -16,7 +16,7 @@ LOG_FILE="$LOG_DIR/$(basename "$0" .sh)_$(date +%Y%m%d_%H%M%S).log"
 exec > >(tee -a "$LOG_FILE") 2>&1
 
 # ---- CUDA 环境变量 ----
-export CUDA_HOME=/tmp/linguangming/verl-workspace/verl-cuda
+export CUDA_HOME=/apdcephfs_zwfy10_303541817/share_303541817/lgm/verl-workspace/verl-cuda
 export PATH=${CUDA_HOME}/bin:$PATH
 export LD_LIBRARY_PATH=${CUDA_HOME}/lib64:$LD_LIBRARY_PATH
 

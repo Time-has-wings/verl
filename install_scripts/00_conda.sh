@@ -15,22 +15,23 @@ exec > >(tee -a "$LOG_FILE") 2>&1
 # ============================================================
 
 # 激活 conda（如果 conda 不在 PATH 中，取消注释下一行并改路径）
-source /jizhicfs/johnnyslin/anaconda3/etc/profile.d/conda.sh
+source /apdcephfs_zwfy10_303541817/share_303541817/lgm/software/miniconda3-clean/bin/activate
+conda create --name lgm-verl python=3.12
 
-# ============================================================
-# 配置 conda 环境前缀路径（按需修改）
-# ============================================================
-ENV_PREFIX="/tmp/linguangming/verl-workspace/lgm-verl-force"
+# # ============================================================
+# # 配置 conda 环境前缀路径（按需修改）
+# # ============================================================
+# ENV_PREFIX="/tmp/linguangming/verl-workspace/lgm-verl-force"
 
-# 1.1 创建 slime 环境（已存在则跳过）
-if [ -d "$ENV_PREFIX" ]; then
-    echo "环境已存在: $ENV_PREFIX，跳过创建"
-else
-    conda create -p "$ENV_PREFIX" python=3.12
-fi
+# # 1.1 创建 slime 环境（已存在则跳过）
+# if [ -d "$ENV_PREFIX" ]; then
+#     echo "环境已存在: $ENV_PREFIX，跳过创建"
+# else
+#     conda create -p "$ENV_PREFIX" python=3.12
+# fi
 
-# 激活环境（后续 pip/conda install 都在这个环境里）
-conda activate "$ENV_PREFIX"
+# # 激活环境（后续 pip/conda install 都在这个环境里）
+# conda activate "$ENV_PREFIX"
 
-echo "==== 00_conda_env.sh 完成 ===="
-echo "后续步骤请先执行: conda activate $ENV_PREFIX"
+# echo "==== 00_conda_env.sh 完成 ===="
+# echo "后续步骤请先执行: conda activate $ENV_PREFIX"

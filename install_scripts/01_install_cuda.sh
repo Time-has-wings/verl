@@ -1,14 +1,14 @@
 #!/bin/bash
 # ============================================================
 # CUDA 12.8.1 自定义路径安装脚本 (TencentOS 3.2 / CentOS 8, runfile)
-# 安装目录: /tmp/linguangming/verl-workspace/verl-cuda
+# 安装目录: /apdcephfs_zwfy10_303541817/share_303541817/lgm/verl-workspace/verl-cuda
 # 用法: bash install-cuda.sh
 # ============================================================
 
 set -euo pipefail
 
 # ---- 安装目录，可通过命令行参数或环境变量指定 ----
-CUDA_INSTALL_DIR="/tmp/linguangming/verl-workspace/verl-cuda"
+CUDA_INSTALL_DIR="/apdcephfs_zwfy10_303541817/share_303541817/lgm/verl-workspace/verl-cuda"
 CUDA_VERSION="12.8.1"
 DRIVER_VERSION="570.124.06"
 RUNFILE="cuda_${CUDA_VERSION}_${DRIVER_VERSION}_linux.run"

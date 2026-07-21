@@ -12,4 +12,4 @@ unset HF_ENDPOINT
 #     --repo-type dataset openai/gsm8k \
 #     --local-dir "${datasets_dir}/gsm8k" 2>&1 | tee "${log_file}"
 
-python ${base_dir}/examples/data_preprocess/gsm8k.py  --local_save_dir /tmp/linguangming/verl-workspace/verl/data/gsm8k
+python ${base_dir}/examples/data_preprocess/gsm8k.py  --local_save_dir ${base_dir}/data/gsm8k
